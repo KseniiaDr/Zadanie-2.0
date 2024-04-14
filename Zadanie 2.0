@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+int linearSearch(int array[], int size, int target) {
+    for (int i = 0; i < size; ++i) {
+        if (array[i] == target) {
+            return i;
+        }
+    }
+    return -1; 
+}
+
+int main() {
+    int data[] = {2, 3, 5, 7, 11, 2, 3, 5, 7, 11, 31, 37, 41, 43, 47, 2, 3, 5, 7, 11, 31, 37, 41, 43, 47};
+    int size = sizeof(data) / sizeof(data[0]);
+    cin >> target;
+
+    int result = linearSearch(data, size, target);
+
+    if (result != -1) {
+        cout << "Element " << target << " znajduje się na indeksie " << result << endl;
+    } else {
+        cout << "Element " << target << " nie został znaleziony." << endl;
+    }
+
+    return 0;
+}
+
+tab[] 
