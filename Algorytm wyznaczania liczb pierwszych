@@ -1,0 +1,41 @@
+#include <iostream>
+#include <vector>
+
+bool czy_pierwsza(int liczba) {
+    if (liczba < 2)
+        return false;
+    for (int i = 2; i * i <= liczba; ++i) {
+        if (liczba % i == 0)
+            return false;
+    }
+    return true;
+}
+
+vector<int> liczby_pierwsze(int ile) {
+    vector<int> wynik;
+    int aktualna_liczba = 2;
+    while (wynik.size() < ile) {
+        if (czy_pierwsza(aktualna_liczba))
+            wynik.push_back(aktualna_liczba);
+        ++aktualna_liczba;
+    }
+    return wynik;
+}
+
+int main() {
+    int ile_liczb;
+    cout << "Ile liczb pierwszych chcesz wyswietlic: ";
+    cin >> ile_liczb;
+
+    vector<int> pierwsze = liczby_pierwsze(ile_liczb);
+
+    cout << "Liczby pierwsze:";
+    for (int i = 0; i < pierwsze.size(); ++i) {
+        cout << " " << pierwsze[i];
+        if (i < pierwsze.size() - 1)
+            cout << ",";
+    }
+    cout << endl;
+
+    return 0;
+}
